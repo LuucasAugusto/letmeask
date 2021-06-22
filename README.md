@@ -1,16 +1,6 @@
-<p align="center">
-  <img alt="Letmeask" src=".github/logo.svg" width="160px">
-</p>
 
-<p align="center">
-  ![image](https://user-images.githubusercontent.com/53840687/122824921-a1c7b500-d2b7-11eb-9232-dadf455c4a5c.png)
-</p>
+![image](https://user-images.githubusercontent.com/53840687/122928054-e0a14d80-d33f-11eb-86e9-05c05e4ce772.png)
 
-<h1 align="center">
-    <img alt="Letmeask" title="Letmeask" src=".github/cover.svg" />
-</h1>
-
-<br>
 
 ## 🧪 Technologies
 
