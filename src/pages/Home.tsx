@@ -8,6 +8,7 @@ import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
 import { FormEvent, useState } from 'react';
 import { database } from '../services/firebase';
+import { Toaster } from 'react-hot-toast';
 
 export function Home() {
     const history = useHistory();
@@ -41,6 +42,9 @@ export function Home() {
 
     return (
         <div id="page-auth">
+            <Toaster position="top-center"
+            reverseOrder={false}/>
+
             <aside>
                 <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
                 <strong>Crie salas de Q&amp;A ao-vivo</strong>
