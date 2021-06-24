@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom'
 
@@ -18,7 +17,7 @@ type RoomParams = {
 }
 
 export function Room() {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
@@ -51,6 +50,10 @@ export function Room() {
     setNewQuestion('');
   }
 
+  function handleExit(){
+    signOut();
+  }
+
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
     if(likeId){
       await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
@@ -67,7 +70,10 @@ export function Room() {
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
-          <RoomCode code={roomId} />
+          <div>
+            <RoomCode code={roomId} />
+            <Button isOutlined onClick={handleExit}>Logout</Button>
+          </div>
         </div>
       </header>
 

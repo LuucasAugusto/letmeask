@@ -1,19 +1,25 @@
-import { useHistory } from 'react-router-dom';
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
+import logoWhiteImg from '../assets/images/logoBranca.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
+import moonImg from '../assets/images/lua.svg';
+import sunImg from '../assets/images/sol.svg';
 import '../styles/auth.scss';
 
+import { useHistory } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
 import { FormEvent, useState } from 'react';
 import { database } from '../services/firebase';
 import { Toaster } from 'react-hot-toast';
+import { useTheme } from '../hooks/useTheme';
 
 export function Home() {
     const history = useHistory();
     const { user, signInWithGoogle } = useAuth();
     const [roomCode, setRoomCode] = useState('');
+
+    const { theme, toggleTheme } = useTheme();
 
     async function handleCreateRoom() {
         if (!user) {
@@ -46,7 +52,7 @@ export function Home() {
     }
 
     return (
-        <div id="page-auth">
+        <div id="page-auth" className={theme}>
             <Toaster position="top-center"
             reverseOrder={false}/>
 
@@ -57,7 +63,10 @@ export function Home() {
             </aside>
             <main>
                 <div className="main-content">
-                    <img src={logoImg} alt="Letmeask" />
+                    <button onClick={toggleTheme} className="change-theme">
+                        {theme == 'dark' ? <img src={sunImg} alt="LogoDark" /> : <img src={moonImg} alt="LogoDark" />}
+                    </button>
+                    {theme == 'dark' ? <img src={logoWhiteImg} alt="Letmeask" /> : <img src={logoImg} alt="Letmeask" />}
                     <button onClick={handleCreateRoom} className="create-room">
                         <img src={googleIconImg} alt="Logo do Google" />
                         Crie sua sala com o Google
