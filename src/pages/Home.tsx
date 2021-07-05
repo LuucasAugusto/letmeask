@@ -64,9 +64,9 @@ export function Home() {
             <main>
                 <div className="main-content">
                     <button onClick={toggleTheme} className="change-theme">
-                        {theme == 'dark' ? <img src={sunImg} alt="LogoDark" /> : <img src={moonImg} alt="LogoDark" />}
+                        {theme == 'dark' ? <img src={sunImg} alt="LogoDark" className="image-theme"/> : <img src={moonImg} alt="LogoDark" className="image-theme"/>}
                     </button>
-                    {theme == 'dark' ? <img src={logoWhiteImg} alt="Letmeask" /> : <img src={logoImg} alt="Letmeask" />}
+                    { theme == 'dark' ? <img src={logoWhiteImg} alt="Letmeask" /> : <img src={logoImg} alt="Letmeask" /> }
                     <button onClick={handleCreateRoom} className="create-room">
                         <img src={googleIconImg} alt="Logo do Google" />
                         Crie sua sala com o Google
